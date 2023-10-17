@@ -1,0 +1,43 @@
+    <!--    header begin -->
+    <header class="header container">
+        <div class="header-logos">
+            <div class="header-logo">
+                <a href="#" class="logo-link">
+                    <div class="logo-img">
+                        <img src="{% static 'blogapp/image/logo.png' %}" alt="" class="logo-img">
+                    </div>
+                    <div class="header-logo-name">
+                        <p class="logo-title">pokorum</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="header-items">
+            <ul class="menu-items">
+                <li class="menu-item"><a href="/" class="menu-link">Home</a></li>
+                <li class="menu-item"><a href="#" class="menu-link">Categories</a></li>
+                <li class="menu-item"><a href="/search/" class="menu-link">search</a></li>
+            </ul>
+        </div>
+        <div class="header-user">
+            <ul class="navbar-nav">
+                            {% if request.user.is_authenticated %}
+            <li class="nav-link px-5">Вы вошли как: {{ user.username }} <a
+                    href="#">Выйти</a></li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Профиль</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="#">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Register</a>
+            </li>
+            {% endif %}
+            </ul>
+            <a class="btn tm-style1 tm-with-border" href="/users/login/">Login</a>
+        </div>
+    </header>
+    <!--    header end -->

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+          crossorigin="anonymous">
+    <link type="text/css" href="{% static 'pokorum/css/styles.css' %}" rel="stylesheet"/>
+    <title> {% block title %}{% endblock %} </title>
+</head>
+<body>
+<div class="wrapper">
+
+    <!--    header begin -->
+    <header class="header container">
+        <div class="header-logos">
+            <div class="header-logo">
+                <a href="#" class="logo-link">
+                    <div class="logo-img">
+                        <img src="{% static 'pokorum/images/logo.png' %}" alt="" class="logo-img">
+                    </div>
+                    <div class="header-logo-name">
+                        <p class="logo-title">pokorum</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="header-items">
+            <ul class="menu-items">
+                <li class="menu-item"><a href="/" class="menu-link">На главную</a></li>
+                <li class="menu-item"><a href="#" class="menu-link">Добавить объявление</a></li>
+                {% if request.user.is_authenticated %}
+                <li class="menu-item"><a href="#" class="menu-link">Комментарии</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="header-user">
+            <ul class="navbar-nav">
+                {% if request.user.is_authenticated %}
+              <li class="nav-link px-5">Вы вошли как: {{ user.username }}
+                  <a btn tm-style1 tm-with-border href="#">Выйти</a></li>
+
+              {% else %}
+              <li class="nav-item">
+                <a class="btn tm-style1 tm-with-border" href="#">Войти</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn tm-style1 tm-with-border" href="#">Зарегистрироваться</a>
+              </li>
+              {% endif %}
+            </ul>
+
+        </div>
+    </header>
+
+    <!--    header end -->
+
+    <main class="main">
+        <div class="container main-content">
+            <!--            sidebar begin  -->
+            <nav class="nav">
+                {% block navigation %}
+                {% endblock navigation %}
+            </nav>
+            <!--            sidebar end  -->
+            <section class="section">
+                <!--                section content begin -->
+                {% block content %}
+                {% endblock content %}
+
+                <!--                 section content end -->
+            </section>
+        </div>
+    </main>
+    {% include './parts/footer.html' %}
+</div>
+</body>
+</html>
