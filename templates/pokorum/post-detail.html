@@ -15,7 +15,7 @@
         <div class="item-block">
             {% if post.picture %}
             <div class="item-img">
-                <img src="{{ post.image.url }}" alt="xxx">
+                <img src="{{ post.picture.url }}" alt="xxx">
             </div>
             {% endif %}
             <div class="item-content">
@@ -23,8 +23,6 @@
                     <h2>{{ post.title }}</h2>
                 </a>
                 <p>{{ post.text|linebreaks|truncatewords:50 }}</p>
-                <p>{{ user_login }}</p>
-                <p>{{ user_login }}</p>
                 <div class="item-footer">
                     <div class="item-info">
                     </div>
@@ -71,7 +69,8 @@
                 <h2>Подписаться на пост</h2>
                 <form class="newsletter-form">
                     <input type="text" placeholder="введите ваш e-mail">
-                    <button class="item-btn btn">subscribe <img src={% static 'pokorum/images/logo.png' %}" alt="#"/></button>
+                    <button class="item-btn btn">subscribe <img
+                            src="{% static 'pokorum/images/ok.png' %}" alt="#"/></button>
                 </form>
             </div>
         </div>

@@ -1,8 +1,9 @@
-from allauth.account.views import LoginView
-from django.contrib.auth.views import LogoutView
+# from allauth.account.views import LoginView
+from django.contrib.auth.views import LogoutView, LoginView
 from django.urls import path
 from .views import PostListView, PostDetailView, CreatePostCreateView, PostUpdateView, PostDeleteView, \
-    CommentPostCreateView, MyCommentsListView, CommentDeleteView, CommentDetailView, comment_accepted_send_email
+    CommentPostCreateView, MyCommentsListView, CommentDeleteView, CommentDetailView, \
+    comment_accepted_send_email, RegisterView
 
 app_name = 'pokorum'
 
@@ -19,5 +20,6 @@ urlpatterns = [
     path('comment-accept/<int:pk>', comment_accepted_send_email, name='comment-accept'),
     path('login/', LoginView.as_view(template_name='sign/login.html'), name='login'),
     path('logout/', LogoutView.as_view(template_name='sign/logout.html'), name='logout'),
+    path('sign/', RegisterView.as_view(), name='sign'),
 ]
 

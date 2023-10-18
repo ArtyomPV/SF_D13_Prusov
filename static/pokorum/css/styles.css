@@ -102,7 +102,7 @@ body{
 	margin: 0 auto;
 }
 .main{
-	background-image: url(../../blogapp/images/hero-bg-v3.jpg);
+	background-image: url(../../pokorum/images/hero-bg-v3.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-color: rgb(63, 7, 152);
@@ -148,7 +148,7 @@ margin: 25px 10px;
 .item-footer{
 	display: flex;
 	justify-content: space-between;
-	padding: 25px;
+	
 
 }
 .item-content{

@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .forms import CreatePostModelForm, CreateCommentModelForm
+from .forms import CreatePostModelForm, CreateCommentModelForm, RegisterForm
 from .filters import CommentFilter
 
 
@@ -211,3 +211,10 @@ def comment_accepted_send_email(request, pk):
     msg.send()
 
     return redirect('/comments/')
+
+
+class RegisterView(CreateView):
+    model = User
+    form_class = RegisterForm
+    template_name = 'sign/register.html'
+    success_url = 'login/'

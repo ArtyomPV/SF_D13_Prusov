@@ -35,22 +35,22 @@
                 <li class="menu-item"><a href="{% url 'pokorum:create-post' %}"
                                          class="menu-link">Добавить пост</a></li>
                 {% if request.user.is_authenticated %}
-                <li class="menu-item"><a href="{% url 'pokorum:my-comments' %}" class="menu-link">Комментарии</a></li>
+                <li class="menu-item"><a class="menu-link" href="{% url 'pokorum:my-comments' %}" class="menu-link">
+                    Комментарии</a></li>
                 {% endif %}
             </ul>
         </div>
         <div class="header-user">
-            <ul class="navbar-nav">
+            <ul class="menu-items">
                 {% if request.user.is_authenticated %}
-              <li class="nav-link px-5">Вы вошли как: {{ user.username }}
-                  <a btn tm-style1 tm-with-border href="{% url 'pokorum:logout' %}">Выйти</a></li>
-
+              <li class="menu-item">Вы вошли как: {{ user.username }}
+                  <a class="menu-link" href="/accounts/logout/">Выйти</a></li>
               {% else %}
-              <li class="nav-item">
-                <a class="btn tm-style1 tm-with-border" href="{% url 'pokorum:login' %}">Войти</a>
+              <li class="menu-item">
+                <a class="menu-link" href="/accounts/login/">Войти</a>
               </li>
-              <li class="nav-item">
-                <a class="btn tm-style1 tm-with-border" href="#">Зарегистрироваться</a>
+              <li class="menu-item">
+                <a class="menu-link" href="/accounts/signup/">Зарегистрироваться</a>
               </li>
               {% endif %}
             </ul>
