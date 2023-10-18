@@ -1,0 +1,33 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block title %}Отзыв к объявлению{% endblock title %}
+
+
+{% block content %}
+<div class="items container">
+    <h1>Отзыв к объявлению:</h1>
+    <div class="item">
+        <div class="item-headline">
+            <div class="item-category">
+                {{ post.title }}
+            </div>
+            <div class="item_dataupdate">
+                Автор: {{ post.user }} | Дата: {{ post.published_date|date:'d-m-Y' }}
+            </div>
+        </div>
+        <div class="item-block">
+            <div class="item-content">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_div }}
+                    <input type="submit" class="btn btn-primary" value="Разместить отзыв">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}

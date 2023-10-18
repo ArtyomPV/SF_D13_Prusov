@@ -116,6 +116,7 @@ body{
 }
 .items{
 	margin: 15px;
+	padding: 15px;
 	border: darkorchid 1px solid;
 }
 .item-headline{
@@ -147,6 +148,8 @@ margin: 25px 10px;
 .item-footer{
 	display: flex;
 	justify-content: space-between;
+	padding: 25px;
+
 }
 .item-content{
 	display: flex;
@@ -206,4 +209,11 @@ margin: 25px 10px;
 
 .form-login{
     width: 600px;
+}
+
+.block{
+	border: 1px, solid, #fc5f3c; 
+}
+.box{
+	margin: 15px;
 }

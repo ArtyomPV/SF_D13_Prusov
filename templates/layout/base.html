@@ -18,7 +18,7 @@
     <header class="header container">
         <div class="header-logos">
             <div class="header-logo">
-                <a href="#" class="logo-link">
+                <a href="/" class="logo-link">
                     <div class="logo-img">
                         <img src="{% static 'pokorum/images/logo.png' %}" alt="" class="logo-img">
                     </div>
@@ -32,9 +32,10 @@
         <div class="header-items">
             <ul class="menu-items">
                 <li class="menu-item"><a href="/" class="menu-link">На главную</a></li>
-                <li class="menu-item"><a href="#" class="menu-link">Добавить объявление</a></li>
+                <li class="menu-item"><a href="{% url 'pokorum:create-post' %}"
+                                         class="menu-link">Добавить пост</a></li>
                 {% if request.user.is_authenticated %}
-                <li class="menu-item"><a href="#" class="menu-link">Комментарии</a></li>
+                <li class="menu-item"><a href="{% url 'pokorum:my-comments' %}" class="menu-link">Комментарии</a></li>
                 {% endif %}
             </ul>
         </div>

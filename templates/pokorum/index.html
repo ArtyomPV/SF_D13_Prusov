@@ -39,7 +39,7 @@
 </div>
 {% endfor %}
 {% if user.is_authenticated %}
-<a href="{% url 'pokorum:index' %}" class="item-btn btn">Добавить пост</a>
+<a href="{% url 'pokorum:create-post' %}" class="item-btn btn">Добавить пост</a>
 {% endif %}
 {% include 'pokorum/parts/paginator.html' %}
 {% endblock content %}

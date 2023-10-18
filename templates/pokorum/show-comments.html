@@ -1,0 +1,45 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block title %}Мои отзывы{% endblock title %}
+
+
+{% block content %}
+
+<div class="items container">
+    <div class="item">
+        <h1 style="padding: 10px; font-size: 25px">ОТЗЫВЫ НА
+            ПОСТЫ<a name="ads"></a></h1>
+        <div class="item-headline">
+            <div class="item-category">
+                <form method="get" style="color:white">
+                    {{ filter.form.as_p }}
+                    <input type="submit" value="Поиск">
+                </form>
+            </div>
+        </div>
+        <div class="item-block">
+            {% if comments %}
+            {% for comment in filter.qs %}
+            <div class="blog-text text-box text-white block">
+                <h4>Комментарий к объявлению "{{ comment.post.title }}"</h4>
+                <h4>Оставил пользователь  {{ comment.user }}</h4>
+                <p style="color:#fff">{{ comment.comment }}</p>
+                <p></p>
+                {% if not comment.is_accepted %}
+                <a href="{% url 'pokorum:comment-accept' comment.pk %}" class="read-more">Принять
+                    <img src="{% static 'img/icons/double-arrow.png' %}" alt="#"/></a>
+                {% endif %}
+                <a href="{% url 'pokorum:delete-comment' comment.pk %}" class="read-more">Отклонить
+                    <img src="{% static 'img/icons/double-arrow.png' %}" alt="#"/></a>
+            </div>
+            {% endfor %}
+            {% else %}
+            <h2 style="color:white">Отзывов нет</h2>
+            {% endif %}
+            <br>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,22 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block title %}Удалить объявление{% endblock title %}
+
+
+{% block content %}
+
+<div class="items container">
+    <div class="item">
+        <form method="post">
+            {% csrf_token %}
+            <div class="box">
+                <p>Вы точно хотите удалить объявление?</p>
+                <p>{{ ad.title }}</p>
+                <input type="submit" class="btn btn-primary" value="Подтвердить удаление">
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,17 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block title %}Удалить отзыв{% endblock title %}
+
+{% block content %}
+<div class="items container">
+    <div class="item">
+        <form method="post">
+            {% csrf_token %}
+            <p style="margin: 15px">Вы точно хотите удалить отзыв?</p>
+            <p style="margin: 15px">{{ comment.comment }}</p>
+            <input type="submit" class="item-btn btn" style="margin: 15px" value="Подтвердить удаление">
+        </form>
+    </div>
+</div>
+
+{% endblock content %}
