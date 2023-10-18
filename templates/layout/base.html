@@ -43,11 +43,11 @@
             <ul class="navbar-nav">
                 {% if request.user.is_authenticated %}
               <li class="nav-link px-5">Вы вошли как: {{ user.username }}
-                  <a btn tm-style1 tm-with-border href="#">Выйти</a></li>
+                  <a btn tm-style1 tm-with-border href="{% url 'pokorum:logout' %}">Выйти</a></li>
 
               {% else %}
               <li class="nav-item">
-                <a class="btn tm-style1 tm-with-border" href="#">Войти</a>
+                <a class="btn tm-style1 tm-with-border" href="{% url 'pokorum:login' %}">Войти</a>
               </li>
               <li class="nav-item">
                 <a class="btn tm-style1 tm-with-border" href="#">Зарегистрироваться</a>

@@ -1,3 +1,5 @@
+from allauth.account.views import LoginView
+from django.contrib.auth.views import LogoutView
 from django.urls import path
 from .views import PostListView, PostDetailView, CreatePostCreateView, PostUpdateView, PostDeleteView, \
     CommentPostCreateView, MyCommentsListView, CommentDeleteView, CommentDetailView, comment_accepted_send_email
@@ -14,6 +16,8 @@ urlpatterns = [
     path('comment/<int:pk>/delete/', CommentDeleteView.as_view(), name='delete-comment'),
     path('comment/<int:pk>', CommentDetailView.as_view(), name='comment-detail'),
     path('comments/', MyCommentsListView.as_view(), name='my-comments'),
-    path('comment-accept/<int:pk>', comment_accepted_send_email, name='comment-accept')
+    path('comment-accept/<int:pk>', comment_accepted_send_email, name='comment-accept'),
+    path('login/', LoginView.as_view(template_name='sign/login.html'), name='login'),
+    path('logout/', LogoutView.as_view(template_name='sign/logout.html'), name='logout'),
 ]
 

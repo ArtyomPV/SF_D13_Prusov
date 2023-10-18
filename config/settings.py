@@ -43,9 +43,10 @@ INSTALLED_APPS = [
 
     'allauth',
     'allauth.account',
-    'django_apscheduler',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+
+    'django_apscheduler',
 
     'pokorum.apps.PokorumConfig',
 
@@ -155,7 +156,7 @@ AUTHENTICATION_BACKENDS = [
 ACCOUNT_FORMS = {
 
     # 'login': 'boardApp.forms.SignIn',
-    'signup': 'pokorum.forms.SignUp',
+    'login': 'pokorum.forms.SignUp',
 
 }
 
@@ -172,6 +173,7 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+# LOGIN_URL = 'sign/login/'
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
@@ -197,3 +199,8 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
