@@ -28,10 +28,12 @@
                 <p></p>
                 {% if not comment.is_accepted %}
                 <a href="{% url 'pokorum:comment-accept' comment.pk %}" class="read-more">Принять
-                    <img src="{% static 'img/icons/double-arrow.png' %}" alt="#"/></a>
+                    <img src="{% static 'pokorum/images/ok.png' %}" alt="#"
+                         style="width:10px; height:10px;"/></a>
                 {% endif %}
                 <a href="{% url 'pokorum:delete-comment' comment.pk %}" class="read-more">Отклонить
-                    <img src="{% static 'img/icons/double-arrow.png' %}" alt="#"/></a>
+                    <img src="{% static 'pokorum/images/ok.png' %}" alt="#"
+                         style="width:10px; height:10px;"/></a>
             </div>
             {% endfor %}
             {% else %}

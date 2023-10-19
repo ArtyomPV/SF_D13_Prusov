@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     # ... здесь нужно указать провайдеры, которые планируете использовать
     'allauth.socialaccount.providers.google',
     #
-    # 'django_apscheduler',
+    'django_apscheduler',
 
     'pokorum.apps.PokorumConfig',
 
@@ -150,28 +150,7 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-#
-# ACCOUNT_FORMS = {
-#
-#     # 'login': 'boardApp.forms.SignIn',
-#     'login': 'pokorum.forms.SignUp',
-#
-# }
 
-# SOCIALACCOUNT_PROVIDERS = {
-#     'google': {
-#         # For each OAuth based provider, either add a ``SocialApp``
-#         # (``socialaccount`` app) containing the required client
-#         # credentials, or list them here:
-#         'APP': {
-#             'client_id': '83254318815-7gvct0mqrl44a9mlqan3snmv24nq0cr2.apps.googleusercontent.com',
-#             'secret': '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',
-#             'key': ''
-#         }
-#     }
-# }
-
-# LOGIN_URL = 'sign/login/'
 LOGIN_URL = '/accounts/login'
 
 LOGIN_REDIRECT_URL = '/'
@@ -181,27 +160,18 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 
-#
-# ACCOUNT_EMAIL_REQUIRED = True
-# ACCOUNT_UNIQUE_EMAIL = True
-# ACCOUNT_USERNAME_REQUIRED = False
-# ACCOUNT_AUTHENTICATION_METHOD = 'email'
-# ACCOUNT_EMAIL_VERIFICATION = True
-#
-#
-#
-# # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.yandex.ru'
-# EMAIL_PORT = 465
-# EMAIL_USE_TLS = False
-# EMAIL_USE_SSL = True
-# EMAIL_HOST_USER = 'django.testemail@yandex.ru'
-# EMAIL_HOST_PASSWORD = 'cyyvemskxtcoaypy'
-# SERVER_EMAIL = EMAIL_HOST_USER
-# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-#
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = 'artpv@yandex.ru'
+EMAIL_HOST_PASSWORD = 'cyyvemskxtcoaypy'
+SERVER_EMAIL = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

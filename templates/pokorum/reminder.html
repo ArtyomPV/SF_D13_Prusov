@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="">ru
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Отзыв одобрен!</title>
+    <title>Новый отзыв!</title>
 </head>
 <body>
-    <h3>Здравствуй, {{ username }}. Ваш отзыв был одобрен автором объявления!</h3>
-    <h4>Заголовок объявления: {{ ad_title|truncatechars:100 }}</h4>
+    <h3>Здравствуй, {{ username }}. Оставлен новый отзыв!</h3>
+    <h4>Заголовок объявления: {{ post_title|truncatechars:100 }}</h4>
     <h5>Текст отзыва: {{ comment_text|truncatechars:100 }}</h5>
     <a href="http://{{ domain_url }}{% url 'pokorum:comment-detail' comment_pk %}">Перейти к отзыву</a>
 </body>

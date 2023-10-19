@@ -148,7 +148,7 @@ class CommentDetailView(LoginRequiredMixin, DetailView):
     """
     Представление показывает выбранный отзыв
     """
-    template_name = 'pocorum/comment-detail.html'
+    template_name = 'pokorum/comment-detail.html'
     model = Comments
     context_object_name = 'comment'
 

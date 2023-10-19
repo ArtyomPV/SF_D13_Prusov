@@ -5,53 +5,34 @@
 
 
 {% block content %}
-
-	<!-- Blog section -->
-     <!-- Список объявлений -->
-	<section class="blog-section spad">
-		<div class="container">
-			<div>
-				<div style="text-align: center">
-					<div class="section-title text-white">
-						<h2>Отзывы на мои объявления<a name="ads"></a></h2>
-					</div>
-							<!-- Blog item -->
-							<div class="blog-item">
-								<div class="blog-thumb" style="margin-left:auto;margin-right:auto;">
-
-								</div>
-								<div class="blog-text text-box text-white"  style="border: solid;border-style: dashed solid;;border-color: white;">
-									<h4>Комментарий к объявлению "{{ comment.post.title }}"</h4>
-									<h4>Оставил пользователь {{ comment.user }}</h4>
-									<p style="color:#fff">{{ comment.comment }}</p>
-									{% if comment.post.user == user_login %}
-										<p></p>
-										{% if not comment.is_accepted %}
-											<a href="{% url 'comment-accept' comment.pk %}" class="read-more">Принять  <img src="{% static 'img/icons/double-arrow.png' %}" alt="#"/></a>
-										{% endif %}
-										<a href="{% url 'delete-comment' comment.pk %}" class="read-more">Отклонить  <img src="{% static 'img/icons/double-arrow.png' %}" alt="#"/></a>
-									{% endif %}
-								</div>
-							</div>
-					<br>
-				</div>
-
-			</div>
-		</div>
-	</section>
-	<!-- Blog section end -->
-
-	<!-- Newsletter section -->
-    <!-- Подписаться ??? -->
-	<section class="newsletter-section">
-		<div class="container">
-			<h2>Subscribe to our newsletter</h2>
-			<form class="newsletter-form">
-				<input type="text" placeholder="ENTER YOUR E-MAIL">
-				<button class="site-btn">subscribe  <img src="{% static 'img/icons/double-arrow.png' %}" alt="#"/></button>
-			</form>
-		</div>
-	</section>
-	<!-- Newsletter section end -->
-
+<div class="items container">
+    <div class="item">
+        <div class="item-headline">
+            <h2>Отзывы на мои объявления<a name="ads"></a></h2>
+        </div>
+        <div style="text-align: center">
+            <!-- Blog item -->
+            <div class="blog-item">
+                <div class="blog-text text-box text-white">
+                    <h4>Комментарий к объявлению "{{ comment.post.title }}"</h4>
+                    <h4>Оставил пользователь {{ comment.user }}</h4>
+                    <p style="color:#fff">{{ comment.comment }}</p>
+                    {% if comment.post.user == user_login %}
+                    <p></p>
+                    {% if not comment.is_accepted %}
+                    <a href="{% url 'pokorum:comment-accept' comment.pk %}"
+                       class="read-more">Принять <img
+                            src="{% static 'pokorum/images/ok.png' %}"
+                            alt="#" STYLE="width:15px; height:15px;"/></a>
+                    {% endif %}
+                    <a href="{% url 'pokorum:delete-comment' comment.pk %}"
+                       class="read-more">Отклонить <img src="{% static 'pokorum/images/ok.png' %}"
+                                                        alt="#" STYLE="width:15px; height:15px;"/></a>
+                    {% endif %}
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
 {% endblock content %}

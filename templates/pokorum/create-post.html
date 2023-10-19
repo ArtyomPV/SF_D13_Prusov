@@ -5,10 +5,8 @@
 
 
 {% block content %}
-
-    	<!-- Hero section -->
-	<section class="hero-section overflow-hidden">
-		<div class="hero-slider owl-carousel">
+<div class="items container">
+    <div class="item">
 			<div class="hero-item set-bg d-flex align-items-center justify-content-center text-center" data-setbg="{% static 'img/slider-bg-1.jpg' %}">
 				<div style="color: white;">
 					<p>Создание нового объявления</p>
@@ -17,14 +15,15 @@
 						{% if not post.category %}
 							{{ post.category.create_default_categories }}
 						{% endif %}
-						{{ form.as_div }}
+
+						{{ form.as_p }}
 						<input type="submit" class="btn btn-primary" value="Добавить объявление">
 					</form>
 				</div>
 			</div>
 
 		</div>
-	</section>
+</div>
 	<!-- Hero section end-->
 
 

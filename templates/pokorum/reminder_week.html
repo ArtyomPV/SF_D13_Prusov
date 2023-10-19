@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Новые объявления за неделю!</title>
+</head>
+<body>
+    <h3>Здравствуй, {{ username }}. Не пропустите новые объявления, опубликованные за неделю!</h3>
+    {% for post in post_list %}
+        <h4>Заголовок объявления: {{ post.title|truncatechars:100 }}</h4>
+        <h5>Текст объявления: {{ post.text|truncatechars:100 }}</h5>
+        <a href="http://{{ domain_url }}{% url 'ad-detail' ad.pk %}">Перейти к объявлению</a>
+    {% endfor %}
+</body>
+</html>

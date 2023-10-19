@@ -6,15 +6,6 @@ from django.contrib.auth.models import Group, User
 from .models import Post, Comments
 
 
-class SignUp(SignupForm):
-
-    def save(self, request):
-        user = super(SignUp, self).save(request)
-        # common_group = Group.objects.get(name='common')
-        # common_group.user_set.add(user)
-        return user
-
-
 class CreatePostModelForm(ModelForm):
     class Meta:
         model = Post
